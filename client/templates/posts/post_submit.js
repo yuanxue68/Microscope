@@ -6,7 +6,7 @@ Template.postSubmit.events({
 			url: $(event.target).find('[name=url]').val(),
 			title: $(event.target).find('[name=title]').val()
 		};
-
+												
 		Meteor.call('postInsert',post, function(error,result){
 			if(error){
 				return alert(error.reason);
