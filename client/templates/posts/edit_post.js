@@ -11,9 +11,14 @@ Template.postEdit.events({
 		}
 		console.log(postProperties.url);
 		console.log(postProperties.title);
+
+		var errors=validatePost(postProperties);
+		if(errors.title||errors.url)
+			return Session.set('postEditErrors',errors);
+
 		Posts.update(currentPostId,{$set:postProperties},function(error){
 			if(error){
-				alert(error.reason);
+				throwError(error.reason);
 			} else {
 				Router.go('postPage',{_id:currentPostId});
 			}
@@ -28,5 +33,18 @@ Template.postEdit.events({
 			Posts.remove(currentPostId);
 			Router.go('postsList');
 		}
+	}
+});
+
+Template.postEdit.created=function(){
+	Session.set('postEditErrors',{});
+}
+
+Template.postEdit.helpers({
+	errorMessage:function(field){
+		return Session.get('postEditErrors')[field];
+	},
+	errorClass: function (field) {
+		return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
 	}
 });
