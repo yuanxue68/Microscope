@@ -1,6 +1,28 @@
 <template name="postPage">
 	<div class="post-page page">
-		{{>postItem}}
+
+		<div class="post">
+		<a href="#" class="upvote btn btn-default {{upvotedClass}}">⬆</a>
+			<div class="post-content">
+				<h3>
+					<a href="{{url}}">{{title}}</a>
+					<span>{{domain}}</span>
+				</h3>
+				<br>
+				<div>
+					<p>
+						<strong>Description:</strong> {{description}}
+					</p>
+				</div>
+				<br>
+				<p>
+					{{pluralize votes "Vote"}}, 
+					submitted by {{author}}
+					<a href='{{pathFor 'postPage'}}'>{{commentsCount}} comments</a>
+					{{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
+				</p>
+			</div>
+		</div>
 		<ul class="comments">
 			{{#each comments}}
 				{{>commentItem}}
