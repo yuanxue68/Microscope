@@ -18,7 +18,9 @@ if(Posts.find().count()===0){
 		url: 'http://google.com',
 		description: "Google's search engine ",
     	submitted: new Date(now - 7 * 3600 * 1000),
-   		commentsCount: 2
+   		commentsCount: 2,
+   		upvoters:[],
+   		votes:0
 	});
 
 	Comments.insert({
@@ -44,7 +46,9 @@ if(Posts.find().count()===0){
 	    url: 'http://bing.com',
 	    description: "microsoft's search engine",
 	    submitted: new Date(now - 10 * 3600 * 1000),
-	    commentsCount: 0
+	    commentsCount: 0,
+	    upvoters:[],
+	    votes:0
 	});
 
 	Posts.insert({
@@ -54,7 +58,9 @@ if(Posts.find().count()===0){
 	    url: 'http://yuanxue68.github.io',
 	    description: "Yuan's personal site",
 	    submitted: new Date(now - 12 * 3600 * 1000),
-	    commentsCount: 0
+	    commentsCount: 0,
+	    upvoters:[],
+	    votes:0
 	});
 
 	for (var i = 0; i < 10; i++) {
@@ -65,7 +71,9 @@ if(Posts.find().count()===0){
 	      	url: 'http://google.com/?q=test-' + i,
 	      	description: "description for " + i,
 	      	submitted: new Date(now - i * 3600 * 1000),
-	      	commentsCount: 0
+	      	commentsCount: 0,
+	      	upvoters:[],
+	      	votes:0
 	    });
   	}
 }
