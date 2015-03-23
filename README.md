@@ -5,7 +5,7 @@ Build with Meteor
 Work left to do:  
 -upvote feature  
 -styling, things plainnnnnnnnn atm  
--infinite scrolling for each date? week? month?? not sure yet
+-infinite scrolling for each date? week? month?? not sure yet  
 -maybe search?
 
 
