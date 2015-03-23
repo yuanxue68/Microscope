@@ -4,11 +4,12 @@ Template.postSubmit.events({
 
 		var post={
 			url: $(event.target).find('[name=url]').val(),
-			title: $(event.target).find('[name=title]').val()
+			title: $(event.target).find('[name=title]').val(),
+			description: $(event.target).find('[name=description]').val()
 		};
 
 		var errors=validatePost(post);
-		if(errors.title||errors.url)
+		if(errors.title||errors.url||errors.description)
 			return Session.set('postSubmitErrors',errors);
 
 		Meteor.call('postInsert',post, function(error,result){

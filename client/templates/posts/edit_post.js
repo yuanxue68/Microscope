@@ -7,13 +7,16 @@ Template.postEdit.events({
 
 		var postProperties={
 			url: $(event.target).find('[name=url]').val(),
-			title: $(event.target).find('[name=title]').val()
+			title: $(event.target).find('[name=title]').val(),
+			description: $(event.target).find('[name=description]').val()
 		}
-		console.log(postProperties.url);
-		console.log(postProperties.title);
+		console.log("id is "+this._id);
+		console.log("url is "+postProperties.url);
+		console.log("title is"+postProperties.title);
+		console.log("description is "+postProperties.description);
 
 		var errors=validatePost(postProperties);
-		if(errors.title||errors.url)
+		if(errors.title||errors.url||errors.description)
 			return Session.set('postEditErrors',errors);
 
 		Posts.update(currentPostId,{$set:postProperties},function(error){
