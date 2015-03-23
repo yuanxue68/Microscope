@@ -38,6 +38,7 @@ body {
   position: relative;
   opacity: 1; 
   background: #EEEFEC;
+  transition:all 300ms 0ms ease-in;
 }
 
 .hover:hover{

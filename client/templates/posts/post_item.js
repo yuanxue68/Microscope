@@ -12,8 +12,10 @@ Template.postItem.helpers({
 		var userId= Meteor.userId();
 		if(userId&&!_.include(this.upvoters, userId)){
 			return 'btn-default upvotable';
-		} else{
+		} else if (userId){
 			return 'btn-success downvotable';
+		} else{
+			return "btn-default disabled"
 		}
 	},
 });
