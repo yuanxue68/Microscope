@@ -1,57 +1,58 @@
 if(Posts.find().count()===0){
 	var now =new Date().getTime();
 
-	var tomId=Meteor.users.insert({
-		profile:{name:'Tom Coleman'}
+	var yuanId=Meteor.users.insert({
+		profile:{name:'Yuan Xue'}
 	});
-	var tom = Meteor.users.findOne(tomId);
+	var yuan = Meteor.users.findOne(yuanId);
 
-	var sachaID=Meteor.users.insert({
-		profile: {name:'Sacha Greif'}
+	var patrickID=Meteor.users.insert({
+		profile: {name:'Patrick Fang'}
 	});
-	var sacha = Meteor.users.findOne(sachaID);
+	var patrick = Meteor.users.findOne(patrickID);
 
-	var telescopeId=Posts.insert({
-		title: 'Introducing Telescope',
-		userId: sacha._id,
-		author: sacha.profile.name,
-		url: 'http://sachagreif.com/introducing-telescope/',
+	var googleId=Posts.insert({
+		title: 'Google Search',
+		userId: yuan._id,
+		author: yuan.profile.name,
+		url: 'http://google.com',
+		description: "Google's search engine ",
     	submitted: new Date(now - 7 * 3600 * 1000),
    		commentsCount: 2
 	});
 
 	Comments.insert({
-		postId: telescopeId,
-		userId: tom._id,
-		author: tom.profile.name,
+		postId: googleId,
+		userId: patrick._id,
+		author: patrick.profile.name,
 		submitted: new Date (now -5*3600*1000),
-		body: 'interesting project!'
+		body: 'interesting site!'
 	});
 
 	Comments.insert({
-	    postId: telescopeId,
-	    userId: sacha._id,
-	    author: sacha.profile.name,
+	    postId: googleId,
+	    userId: yuan._id,
+	    author: yuan.profile.name,
 	    submitted: new Date(now - 3 * 3600 * 1000),
 	    body: 'Thx!'
 	});
 
 	Posts.insert({
-	    title: 'Meteor',
-	    userId: tom._id,
-	    author: tom.profile.name,
-	    url: 'http://meteor.com',
-	    description: "description for ",
+	    title: 'Bing Search',
+	    userId: patrick._id,
+	    author: patrick.profile.name,
+	    url: 'http://bing.com',
+	    description: "microsoft's search engine",
 	    submitted: new Date(now - 10 * 3600 * 1000),
 	    commentsCount: 0
 	});
 
 	Posts.insert({
 	    title: 'The Meteor Book',
-	    userId: tom._id,
-	    author: tom.profile.name,
-	    url: 'http://themeteorbook.com',
-	    description: "book of Meteor",
+	    userId: yuan._id,
+	    author: yuan.profile.name,
+	    url: 'http://yuanxue68.github.io',
+	    description: "Yuan's personal site",
 	    submitted: new Date(now - 12 * 3600 * 1000),
 	    commentsCount: 0
 	});
@@ -59,8 +60,8 @@ if(Posts.find().count()===0){
 	for (var i = 0; i < 10; i++) {
 	    Posts.insert({
 	      	title: 'Test post #' + i,
-	      	author: sacha.profile.name,
-	      	userId: sacha._id,
+	      	author: yuan.profile.name,
+	      	userId: yuan._id,
 	      	url: 'http://google.com/?q=test-' + i,
 	      	description: "description for " + i,
 	      	submitted: new Date(now - i * 3600 * 1000),

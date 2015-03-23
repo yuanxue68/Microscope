@@ -34,4 +34,10 @@ Template.commentItem.events({
 
 	},
 
+	'click .remove': function(){
+	    if(confirm("Are you sure you want to remove your comment?")){
+	    	Meteor.call('commentRemove',this._id);
+	    }
+	},
+
 });
