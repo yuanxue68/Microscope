@@ -11,16 +11,20 @@ Template.postItem.helpers({
 	upvotedClass: function(){
 		var userId= Meteor.userId();
 		if(userId&&!_.include(this.upvoters, userId)){
-			return 'btn-primary upvotable';
+			return 'btn-default upvotable';
 		} else{
-			return 'disabled';
+			return 'btn-success downvotable';
 		}
-	}
+	},
 });
 
 Template.postItem.events({
 	'click .upvotable': function(event){
 		event.preventDefault();
 		Meteor.call('upvote',this._id);
+	},
+	'click .downvotable': function(event){
+		event.preventDefault();
+		Meteor.call('cancelvote',this._id);
 	}
-})
+});
