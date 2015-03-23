@@ -48,7 +48,7 @@ if(Posts.find().count()===0){
 	});
 
 	Posts.insert({
-	    title: 'The Meteor Book',
+	    title: 'My site',
 	    userId: yuan._id,
 	    author: yuan.profile.name,
 	    url: 'http://yuanxue68.github.io',
