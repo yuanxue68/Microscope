@@ -1,6 +1,7 @@
 # MiniProductHunt
 mini product hunt that renders comments, upvotes in real time. Meteor.js  
-Build with Meteor  
+
+http://miniproducthunt.meteor.com/
 
 Work left to do:  
 -upvote feature  
