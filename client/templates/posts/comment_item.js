@@ -11,7 +11,7 @@ Template.commentItem.helpers({
 		return this.userId===Meteor.userId();
 	},
 	editingOrNot:function(){
-		if(Session.get('editing')===true)
+		if(Session.get(this._id)===true)
 			return true;
 		else
 			return false;
@@ -20,12 +20,12 @@ Template.commentItem.helpers({
 
 Template.commentItem.events({
 	'click .edit': function(){
-	    Session.set('editing',true);
+	    Session.set(this._id,true);
 	},
 
 	'submit form': function(event){
 		event.preventDefault();
-		Session.set('editing',false);
+		Session.set(this._id,false);
 		var commentProperties={
 			body: $(".editBox").val(),
 		}
