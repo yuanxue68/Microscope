@@ -3,7 +3,19 @@
 		<h4>
 			<span class="author">{{author}}</span>
 			<span class="date">on {{submittedText}}</span>
+			{{#if ownComment}}
+				<a class="edit">Edit</a>
+			{{/if}}
 		</h4>
-		<p>{{body}}</p>
+		{{#if editingOrNot}}
+			<form>
+				<input class="editBox" value="{{body}}">
+			    <button type="submit" class="btn btn-primary">
+			    	Save Comment
+			    </button>
+  			</form>
+		{{else}}
+			<p class="comment">{{body}}</p>
+		{{/if}}
 	</li>
 </template>
